@@ -5,11 +5,9 @@
 #include "../src/zimfilechecks.h"
 
 
-TEST(Zimcheck, overalStatus)
+TEST(zimfilechecks, test_checksum)
 {
-  std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
-
-//    ASSERT_TRUE(fileExists(fn));
+    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
 
     zim::File file(fn);
     ErrorLogger logger;
@@ -19,4 +17,54 @@ TEST(Zimcheck, overalStatus)
     ASSERT_TRUE(logger.overalStatus());
     
 
+}
+
+TEST(zimfilechecks, test_metadata)
+{
+    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
+
+    zim::File file(fn);
+    ErrorLogger logger;
+    
+    test_metadata(file, logger);
+
+    ASSERT_TRUE(logger.overalStatus());
+    
+
+}
+
+TEST(zimfilechecks, test_favicon)
+{
+    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
+
+    zim::File file(fn);
+    ErrorLogger logger;
+    
+    test_favicon(file, logger);
+
+    ASSERT_TRUE(logger.overalStatus());
+}
+
+TEST(zimfilechecks, test_mainpage)
+{
+    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
+
+    zim::File file(fn);
+    ErrorLogger logger;
+    
+    test_mainpage(file, logger);
+
+    ASSERT_TRUE(logger.overalStatus());
+}
+
+TEST(zimfilechecks, test_articles)
+{
+//    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
+//
+//    zim::File file(fn);
+//    ErrorLogger logger;
+//    
+//    test_articles(file, logger);
+//
+//    ASSERT_TRUE(logger.overalStatus());
 }
