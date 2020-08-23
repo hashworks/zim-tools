@@ -59,12 +59,14 @@ TEST(zimfilechecks, test_mainpage)
 
 TEST(zimfilechecks, test_articles)
 {
-//    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
-//
-//    zim::File file(fn);
-//    ErrorLogger logger;
-//    
-//    test_articles(file, logger);
-//
-//    ASSERT_TRUE(logger.overalStatus());
+    std::string fn = "data/zimfiles/wikibooks_be_all_nopic_2017-02.zim";
+
+    zim::File file(fn);
+    ErrorLogger logger;
+    ProgressBar progress(1);
+
+    
+    test_articles(file, logger, progress, true, true, true ,true);
+
+    ASSERT_TRUE(logger.overalStatus());
 }
