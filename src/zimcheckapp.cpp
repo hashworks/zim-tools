@@ -39,6 +39,34 @@
 #include "version.h"
 #include "zimfilechecks.h"
 
+void displayHelp()
+{
+    std::cout<<"\n"
+             "zimcheck checks the quality of a ZIM file.\n\n"
+             "Usage: zimcheck [options] zimfile\n"
+             "options:\n"
+             "-A , --all             run all tests. Default if no flags are given.\n"
+             "-0 , --empty           Empty content\n"
+             "-C , --checksum        Internal CheckSum Test\n"
+             "-M , --metadata        MetaData Entries\n"
+             "-F , --favicon         Favicon\n"
+             "-P , --main            Main page\n"
+             "-R , --redundant       Redundant data check\n"
+             "-U , --url_internal    URL check - Internal URLs\n"
+             "-X , --url_external    URL check - External URLs\n"
+             "-E , --mime            MIME checks\n"
+             "-D , --details         Details of error\n"
+             "-B , --progress        Print progress report\n"
+             "-H , --help            Displays Help\n"
+             "-V , --version         Displays software version\n"
+             "examples:\n"
+             "zimcheck -A wikipedia.zim\n"
+             "zimcheck --checksum --redundant wikipedia.zim\n"
+             "zimcheck -F -R wikipedia.zim\n"
+             "zimcheck -M --favicon wikipedia.zim\n";
+    return;
+}
+
 
 int main (int argc, char **argv)
 {
